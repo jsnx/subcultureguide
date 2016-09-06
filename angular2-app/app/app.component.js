@@ -10,27 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var Shop = (function () {
-    function Shop() {
+    function Shop(id, name) {
+        this.id = id;
+        this.name = name;
     }
     return Shop;
 }());
 exports.Shop = Shop;
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = "Shops";
-        this.shop = {
-            id: 1,
-            name: 'Coretex',
-            strasse: "Musterstraße",
-            postal: 10249,
-            phone: 2213312,
-            category: "hardcore/punk"
-        };
+        this.title = 'Shops';
+        this.example_shop = [
+            new Shop(1, "marc"),
+            new Shop(2, "marc"),
+            new Shop(3, "marc"),
+            new Shop(4, "marc")
+        ];
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n\t<h1>{{ title }}</h1>\n\t<ul><li>{{ shop.name }}</li>\n\t<li>{{ shop.category }}</li>\n\t<li>{{ shop.strasse }}</li>\n\t<li>{{ shop.postal }}</li>\n\t<ul>\n\t<div>\n    \t<label>name: </label>\n    \t<input [(ngModel)]=\"shop.name\" placeholder=\"name\">\n  \t</div>\n\t"
+            template: "\n\t<h1>{{ title }}</h1>\n\t<ul>\n\t\t<li *ngFor=\"let shop of example_shop\">{{shop.name}}</li>\n\t<ul>\n\t<div>\n    \t<label>name: </label>\n\n  \t</div>\n\t"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
