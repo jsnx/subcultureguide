@@ -9,24 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var shop_detail_component_1 = require('./shop-detail.component');
-var forms_1 = require('@angular/forms');
-var AppModule = (function () {
-    function AppModule() {
+var shop_1 = require('./shop');
+var ShopDetailComponent = (function () {
+    function ShopDetailComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule,
-                forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent,
-                shop_detail_component_1.ShopDetailComponent],
-            bootstrap: [app_component_1.AppComponent]
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', shop_1.Shop)
+    ], ShopDetailComponent.prototype, "shop", void 0);
+    ShopDetailComponent = __decorate([
+        core_1.Component({
+            selector: "shop-details",
+            template: "\n    <div *ngIf=\"shop\">\n    <h2>{{shop.name}} details!</h2>\n    <div><label>id: </label>{{shop.id}}</div>\n    <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"shop.name\" placeholder=\"name\"/>\n    </div>\n    </div>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], ShopDetailComponent);
+    return ShopDetailComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.ShopDetailComponent = ShopDetailComponent;
+//# sourceMappingURL=shop-detail.component.js.map
